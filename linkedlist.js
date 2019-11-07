@@ -1,71 +1,100 @@
+/*1. Create a linked list class
+Walk through the linked list code in the curriculum and understand it well. Then write a linked list class and its core functions (insertFirst, insertLast, remove, find) from scratch.*/
+
+class _Node {
+  constructor(value, next) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
 class LinkedList {
-    constructor() {
-        this.head = null;
-    }
+  constructor() {
+    this.head = null;
+  }
 
   insertFirst(item) {
-        this.head = new _Node(item, this.head);
-    }
+    this.head = new _Node(item, this.head);
+  }
 
-       insertLast(item) {
-        if (this.head === null) {
-            this.insertFirst(item);
-        }
-        else {
-            let tempNode = this.head;
-            while (tempNode.next !== null) {
-                tempNode = tempNode.next;
-            }
-            tempNode.next = new _Node(item, null);
-        }
+  insertLast(item) {
+    if (this.head === null) {
+      this.insertFirst(item);
     }
-
-       find(item) { 
-        // Start at the head
-        let currNode = this.head;
-        // If the list is empty
-        if (!this.head) {
-            return null;
-        }
-        // Check for the item 
-        while (currNode.value !== item) {
-            /* Return null if it's the end of the list 
-               and the item is not on the list */
-            if (currNode.next === null) {
-                return null;
-            }
-            else {
-                // Otherwise, keep looking 
-                currNode = currNode.next;
-            }
-        }
-        // Found it
-        return currNode;
+    else {
+      let tempNode = this.head;
+      while (tempNode.next !== null) {
+        tempNode = tempNode.next;
+      }
+      tempNode.next = new _Node(item, null);
     }
+  }
 
-        remove(item){ 
-        // If the list is empty
-        if (!this.head) {
-            return null;
-        }
-        // If the node to be removed is head, make the next node head
-        if (this.head.value === item) {
-            this.head = this.head.next;
-            return;
-        }
-        // Start at the head
-        let currNode = this.head;
-        // Keep track of previous
-        let previousNode = this.head;
-
-        while ((currNode !== null) && (currNode.value !== item)) {
-            // Save the previous node 
-            previousNode = currNode;
-            currNode = currNode.next;
-        }
-        if (currNode === null) {
-            console.log('Item not found');
-            return;
-        }
-        previousNode.next = currNode.next;
+  remove(item) {
+    if (!this.head) {
+      return null;
     }
+    if (this.head.value === item) {
+      this.head = this.head.next;
+      return;
+    }
+    let currNode = this.head;
+    let previousNode = this.head;
+    while ((currNode !== null) && (currNode.value !== item)) {
+      previousNode = currNode;
+      currNode = currNode.next
+    }
+    if (currNode === null) {
+      console.log('Item not found')
+      return;
+    }
+    previousNode.next = currNode.next;
+  }
+
+  fromMiddle() {
+    if (this.head.next === null) {
+      fromBeginning()
+    } else {
+      let currentNode = this.head;
+      let previousNode = this.head;
+
+      while (currentNode.next !== null) { }
+      currentNode = currentNode.next;
+      previousNode = currentNode;
+    }
+    if (currentNode.next === null) {
+
+    }
+  }
+}
+  }
+
+find(item) {
+  let currentNode = this.head;
+  if (!this.head) {
+    return null;
+  }
+  while (currentNode.value !== item) {
+    if (currentNode === null) {
+      return null;
+    } else {
+      currentNode = currentNode.next;
+    }
+  }
+  return currentNode;
+}
+}
+
+// find(item) {
+//   let currentNode = this.head;
+//   if (!this.head) {
+//     return 'No items in list';
+//   }
+//   while (currentNode.next !== null && currentNode.value !== item) {
+//     currentNode = currentNode.next;
+//   }
+//   if (currentNode === null) {
+//     return 'Item not found';
+//   }
+//   return currentNode;
+// }
