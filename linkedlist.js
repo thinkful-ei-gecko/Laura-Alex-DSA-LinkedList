@@ -134,6 +134,20 @@ class LinkedList {
   }
 }
 
+function display(list) {
+  let currentNode = list.head;
+  
+  while(currentNode.next !== null) {
+    console.log(currentNode.value);
+    currentNode = currentNode.next;
+  }
+}
+
+function size() {}
+function isEmpty() {}
+function findPrevious() {}
+function findLast() {}
+
 function main() {
   let SLL = new LinkedList();
   SLL.insertFirst('Apollo');
@@ -147,8 +161,11 @@ function main() {
   SLL.insertAfter('Hotdog', 'Helo');
   SLL.insertAt('Kat', 3);
   SLL.remove('Tauhida');
+
+  display(SLL);
 }
-console.log(main());
+
+main();
 // find(item) {
 //   let currentNode = this.head;
 //   if (!this.head) {
