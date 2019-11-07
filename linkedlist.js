@@ -96,7 +96,6 @@ class LinkedList {
     }
   }
 
-
   remove(item) {
     if (!this.head) {
       return null;
@@ -143,7 +142,17 @@ function display(list) {
   }
 }
 
-function size() {}
+function size(list) {
+  let currentNode = list.head;
+  let counter = 0;
+  
+  while(currentNode.next !== null) {
+    currentNode = currentNode.next;
+    counter ++;
+  }
+  console.log(counter);
+}
+
 function isEmpty() {}
 function findPrevious() {}
 function findLast() {}
@@ -163,6 +172,7 @@ function main() {
   SLL.remove('Tauhida');
 
   display(SLL);
+  size(SLL);
 }
 
 main();
