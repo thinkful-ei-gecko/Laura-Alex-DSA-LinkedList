@@ -153,7 +153,14 @@ function size(list) {
   console.log(counter);
 }
 
-function isEmpty() {}
+function isEmpty(list) {
+  if (list.head === null) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
 function findPrevious() {}
 function findLast() {}
 
@@ -173,6 +180,7 @@ function main() {
 
   display(SLL);
   size(SLL);
+  isEmpty(SLL);
 }
 
 main();
