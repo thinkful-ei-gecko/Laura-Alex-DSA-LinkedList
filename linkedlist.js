@@ -30,8 +30,8 @@ class LinkedList {
     }
   }
 
-  insertBefore(item, key){
-    if(!this.head){
+  insertBefore(item, key) {
+    if (!this.head) {
       this.insertFirst(item);
     }
     else {
@@ -52,8 +52,8 @@ class LinkedList {
 
   }
 
-  insertAfter(item, key){
-    if(!this.head){
+  insertAfter(item, key) {
+    if (!this.head) {
       this.insertFirst(item);
     }
     else {
@@ -70,9 +70,28 @@ class LinkedList {
       if (currNode.value === key) {
         let foundNode = currNode;
         let afterFoundNode = currNode.next;
-        
+
 
         foundNode.next = new _Node(item, afterFoundNode);
+      }
+    }
+  }
+
+  insertAt(item, pos) {
+    if (!this.head) {
+      this.insertFirst(item);
+    }
+    else {
+      let currNode = this.head;
+      let previousNode = this.head;
+
+      for (let i = 1; i <= pos; i++) {
+        previousNode = currNode;
+        currNode = currNode.next;
+
+        if (i === pos) {
+          previousNode.next = new _Node(item, currNode);
+        }
       }
     }
   }
@@ -123,12 +142,11 @@ function main() {
   SLL.insertLast('Husker');
   SLL.insertLast('Starbuck');
   SLL.insertLast('Tauhida');
- // SLL.remove('Squirrel');
+  // SLL.remove('Squirrel');
   SLL.insertBefore('Athena', 'Boomer');
-  SLL.insertAfter("Hotdog", "Helo");
-
-  console.log(SLL.find('Hotdog'));
-  console.log(SLL.find('Helo'));
+  SLL.insertAfter('Hotdog', 'Helo');
+  SLL.insertAt('Kat', 3);
+  SLL.remove('Tauhida');
 }
 console.log(main());
 // find(item) {
