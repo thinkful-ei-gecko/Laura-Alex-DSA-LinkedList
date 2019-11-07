@@ -46,7 +46,7 @@ class LinkedList {
         return;
       }
       if (currNode.value === key) {
-        previousNode.next = new _Node(item, currNode.next);
+        previousNode.next = new _Node(item, currNode);
       }
     }
 
@@ -69,9 +69,10 @@ class LinkedList {
       }
       if (currNode.value === key) {
         let foundNode = currNode;
-        let afterNode = currNode.next;
+        let afterFoundNode = currNode.next;
+        
 
-        foundNode.next = new _Node(item, afterNode.next);
+        foundNode.next = new _Node(item, afterFoundNode);
       }
     }
   }
@@ -125,10 +126,9 @@ function main() {
  // SLL.remove('Squirrel');
   SLL.insertBefore('Athena', 'Boomer');
   SLL.insertAfter("Hotdog", "Helo");
-  console.log(SLL.find('Hotdog'));
-  console.log(SLL.find('Husker'));
-  console.log(SLL.find('Boomer'));
 
+  console.log(SLL.find('Hotdog'));
+  console.log(SLL.find('Helo'));
 }
 console.log(main());
 // find(item) {
