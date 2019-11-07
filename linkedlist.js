@@ -42,47 +42,29 @@ class LinkedList {
     let previousNode = this.head;
     while ((currNode !== null) && (currNode.value !== item)) {
       previousNode = currNode;
-      currNode = currNode.next
+      currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Item not found')
+      console.log('Item not found');
       return;
     }
     previousNode.next = currNode.next;
   }
 
-  fromMiddle() {
-    if (this.head.next === null) {
-      fromBeginning()
-    } else {
-      let currentNode = this.head;
-      let previousNode = this.head;
-
-      while (currentNode.next !== null) { }
-      currentNode = currentNode.next;
-      previousNode = currentNode;
-    }
-    if (currentNode.next === null) {
-
-    }
-  }
-}
-  }
-
-find(item) {
-  let currentNode = this.head;
-  if (!this.head) {
-    return null;
-  }
-  while (currentNode.value !== item) {
-    if (currentNode === null) {
+  find(item) {
+    let currentNode = this.head;
+    if (!this.head) {
       return null;
-    } else {
-      currentNode = currentNode.next;
     }
+    while (currentNode.value !== item) {
+      if (currentNode === null) {
+        return null;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return currentNode;
   }
-  return currentNode;
-}
 }
 
 // find(item) {
@@ -94,7 +76,9 @@ find(item) {
 //     currentNode = currentNode.next;
 //   }
 //   if (currentNode === null) {
-//     return 'Item not found';
+//     return null;
 //   }
-//   return currentNode;
+//   if (currentNode.value === item) {
+//     return currentNode;
+//   }
 // }
