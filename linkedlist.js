@@ -135,8 +135,8 @@ class LinkedList {
 
 function display(list) {
   let currentNode = list.head;
-  
-  while(currentNode.next !== null) {
+
+  while (currentNode.next !== null) {
     console.log(currentNode.value);
     currentNode = currentNode.next;
   }
@@ -145,10 +145,10 @@ function display(list) {
 function size(list) {
   let currentNode = list.head;
   let counter = 0;
-  
-  while(currentNode.next !== null) {
+
+  while (currentNode.next !== null) {
     currentNode = currentNode.next;
-    counter ++;
+    counter++;
   }
   console.log(counter);
 }
@@ -161,8 +161,33 @@ function isEmpty(list) {
   }
 }
 
-function findPrevious() {}
-function findLast() {}
+function findPrevious(list, item) {
+  let currentNode = list.head;
+  let previousNode = list.head;
+
+  if (list.head === item) {
+    return null;
+  }
+
+  while (currentNode.value !== item && currentNode.next !== null) {
+    currentNode = currentNode.next;
+    if (currentNode.value === item) {
+      console.log(previousNode.value);
+    }
+    previousNode = currentNode;
+  }
+}
+
+function findLast(list) {
+  let currentNode = list.head;
+
+  while (currentNode.next !== null) {
+    currentNode = currentNode.next;
+  }
+  if (currentNode.next === null) {
+    return currentNode;
+  }
+}
 
 function main() {
   let SLL = new LinkedList();
@@ -178,9 +203,11 @@ function main() {
   SLL.insertAt('Kat', 3);
   SLL.remove('Tauhida');
 
-  display(SLL);
-  size(SLL);
-  isEmpty(SLL);
+  // display(SLL);
+  // size(SLL);
+  // isEmpty(SLL);
+  // findPrevious(SLL, 'Starbuck');
+  console.log(findLast(SLL));
 }
 
 main();
